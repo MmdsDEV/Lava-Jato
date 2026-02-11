@@ -17,7 +17,6 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/* IMAGENS RESPONSIVAS */
 img {
     max-width: 100%;
     height: auto;
@@ -30,32 +29,17 @@ body {
     overflow-x: hidden;
 }
 
-/* HEADER - Imagem mais clara e responsiva */
+/* HEADER */
 header {
     position: relative;
     padding: 140px 20px;
     text-align: center;
-    min-height: 60vh;                /* garante altura mínima boa em telas grandes */
+    min-height: 60vh;
     background: linear-gradient(to bottom, rgba(2, 6, 23, 0.45), rgba(2, 6, 23, 0.75)),
                 url("gtr2.jpg") no-repeat center;
     background-size: cover;
     background-position: center;
     animation: fadeIn 1.5s ease-in-out;
-}
-
-/* Melhora responsividade da imagem de fundo */
-@media (max-width: 768px) {
-    header {
-        padding: 100px 15px;
-        min-height: 50vh;
-        background-position: center 30%;   /* sobe um pouco a imagem no mobile para melhor enquadramento */
-    }
-}
-
-@media (min-width: 1200px) {
-    header {
-        padding: 180px 40px;
-    }
 }
 
 .logo {
@@ -67,16 +51,23 @@ header {
 
 .cta {
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
 }
 
 .btn {
     display: inline-block;
-    padding: 15px 35px;
-    margin: 10px;
+    padding: 16px 40px;
     border-radius: 50px;
     text-decoration: none;
     font-weight: 600;
-    transition: 0.3s;
+    font-size: 1.1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
 }
 
 .btn-primary {
@@ -87,27 +78,17 @@ header {
 
 .btn-primary:hover {
     box-shadow: 0 0 30px #38bdf8;
-    transform: scale(1.1);
-}
-
-.btn-secondary {
-    border: 2px solid #38bdf8;
-    color: #38bdf8;
-}
-
-.btn-secondary:hover {
-    background: #38bdf8;
-    color: #020617;
+    transform: translateY(-3px);
 }
 
 /* SERVIÇOS */
 .services {
-    padding: 100px 20px;
+    padding: 80px 20px;
     text-align: center;
 }
 
 .services h2 {
-    margin-bottom: 60px;
+    margin-bottom: 50px;
     font-size: 32px;
 }
 
@@ -115,33 +96,34 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
 }
 
 .card {
     backdrop-filter: blur(15px);
     background: rgba(255,255,255,0.05);
-    padding: 35px;
+    padding: 30px;
     border-radius: 20px;
-    width: 280px;
+    width: 100%;
+    max-width: 300px;
     transition: 0.4s;
     border: 1px solid rgba(255,255,255,0.1);
 }
 
 .card:hover {
-    transform: translateY(-12px) scale(1.05);
+    transform: translateY(-12px) scale(1.04);
     border-color: #38bdf8;
     box-shadow: 0 0 25px rgba(56,189,248,0.4);
 }
 
 .card h3 {
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     color: #38bdf8;
 }
 
 /* DIFERENCIAL */
 .diferencial {
-    padding: 100px 20px;
+    padding: 80px 20px;
     background: linear-gradient(180deg, #020617, #0f172a);
     text-align: center;
 }
@@ -158,39 +140,38 @@ header {
 .float-instagram {
     position: fixed;
     bottom: 20px;
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 3;
+    z-index: 1000;
     animation: pulse 1.8s infinite;
 }
 
 .float-whatsapp {
     right: 20px;
     background: #25d366;
-    box-shadow: 0 15px 40px rgba(37,211,102,0.7);
+    box-shadow: 0 10px 30px rgba(37,211,102,0.6);
 }
 
 .float-instagram {
     left: 20px;
     background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
-    box-shadow: 0 15px 40px rgba(221,42,123,0.7);
+    box-shadow: 0 10px 30px rgba(221,42,123,0.6);
 }
 
 .float-whatsapp img,
 .float-instagram img {
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
 }
 
 /* ANIMAÇÕES */
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); }
-    100% { transform: scale(1); }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
 }
 
 @keyframes fadeIn {
@@ -199,33 +180,64 @@ header {
 }
 
 footer {
-    padding: 25px;
+    padding: 30px 20px;
     text-align: center;
     opacity: 0.6;
     font-size: 14px;
 }
 
-/* RESPONSIVO MOBILE - ajustes gerais */
+/* RESPONSIVO MOBILE */
 @media (max-width: 768px) {
+    header {
+        padding: 100px 15px;
+        min-height: 50vh;
+        background-position: center 35%;
+    }
+
     .logo {
-        font-size: 32px;
+        font-size: 36px;
     }
 
-    .float-whatsapp,
-    .float-instagram {
-        width: 55px;
-        height: 55px;
-    }
-
-    .float-whatsapp img,
-    .float-instagram img {
-        width: 28px;
-        height: 28px;
+    .cta {
+        gap: 16px;
     }
 
     .btn {
-        padding: 12px 25px;
-        font-size: 0.95rem;
+        padding: 14px 30px;
+        font-size: 1rem;
+        max-width: 280px;
+    }
+
+    .services, .diferencial {
+        padding: 60px 15px;
+    }
+
+    .cards {
+        gap: 20px;
+    }
+
+    .float-whatsapp, .float-instagram {
+        width: 55px;
+        height: 55px;
+        bottom: 15px;
+    }
+
+    .float-whatsapp img, .float-instagram img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+@media (min-width: 769px) {
+    .cta {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .btn {
+        width: auto;
+        max-width: none;
+        padding: 16px 45px;
     }
 }
 </style>
@@ -237,13 +249,13 @@ footer {
     <div class="logo">CRAZY DETAILS</div>
 
     <div class="cta">
-        <a href="https://wa.me/5562991225645?text=Olá,%20quero%20agendar%20um%20detalhamento!"
+        <a href="http://wa.me/5562991225645"
            target="_blank"
            class="btn btn-primary">Agendar Agora</a>
 
-        <a href="https://maps.app.goo.gl/seulink"
+        <a href="https://www.google.com/maps?q=-16.688385009765625,-49.22149658203125&z=17&hl=pt-BR"
            target="_blank"
-           class="btn btn-secondary">Ver Localização</a>
+           class="btn btn-primary">Ver Localização</a>
     </div>
 </header>
 
@@ -287,12 +299,12 @@ footer {
 </footer>
 
 <!-- WhatsApp -->
-<a href="https://wa.me/5562999999999" target="_blank" class="float-whatsapp">
+<a href="http://wa.me/5562991225645" target="_blank" class="float-whatsapp">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
 </a>
 
 <!-- Instagram -->
-<a href="https://www.instagram.com/seuinstagram" target="_blank" class="float-instagram">
+<a href="https://www.instagram.com/crazy_detailss?igsh=MXBsYjU0YzR2NWRrdA==" target="_blank" class="float-instagram">
     <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
 </a>
 

@@ -1,337 +1,1215 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crazy Details | Elite Automotive Aesthetic</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-    <style>
-        :root {
-            --primary: #38bdf8;
-            --bg-dark: #020617;
-            --bg-card: rgba(15, 23, 42, 0.6);
-            --text-main: #f8fafc;
-            --accent-glow: rgba(56, 189, 248, 0.3);
-        }
+<title>Crazy Details | Estética Automotiva Premium</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            cursor: none; /* Cursor personalizado ativado */
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        body {
-            background-color: var(--bg-dark);
-            color: var(--text-main);
-            font-family: 'Inter', sans-serif;
-            overflow-x: hidden;
-            line-height: 1.6;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-        /* Custom Cursor */
-        #cursor {
-            position: fixed;
-            width: 10px;
-            height: 10px;
-            background: var(--primary);
-            border-radius: 50%;
-            pointer-events: none;
-            z-index: 9999;
-            box-shadow: 0 0 15px var(--primary);
-            transition: transform 0.1s;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
 
-        /* Layout Imersivo */
-        section {
-            padding: 100px 10% ;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+<style>
 
-        /* Navbar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 25px 10%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
+:root{
+    --primary:#00aaff;
+    --primary-dark:#0077ff;
+    --dark:#020617;
+    --dark-2:#071224;
+    --glass:rgba(255,255,255,0.05);
+    --white:#ffffff;
+    --gray:#9ca3af;
+}
 
-        .nav-logo {
-            font-family: 'Syncopate', sans-serif;
-            font-weight: 700;
-            letter-spacing: 4px;
-            color: var(--primary);
-            font-size: 1.2rem;
-        }
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.8)),
-                        url('https://images.unsplash.com/photo-1603584173870-7f3ca9940280?auto=format&fit=crop&q=80&w=2000') no-repeat center;
-            background-size: cover;
-            text-align: left;
-            position: relative;
-        }
+body{
+    font-family:'Montserrat',sans-serif;
+    background:#000814;
+    color:white;
+    overflow-x:hidden;
+}
 
-        .hero h1 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            line-height: 1;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-        }
+img{
+    width:100%;
+    display:block;
+}
 
-        .hero h1 span {
-            color: transparent;
-            -webkit-text-stroke: 1px var(--primary);
-        }
+a{
+    text-decoration:none;
+}
 
-        .hero-cta {
-            display: flex;
-            gap: 20px;
-            margin-top: 40px;
-        }
+/* ========================= */
+/* NAVBAR */
+/* ========================= */
 
-        .btn-luxury {
-            padding: 18px 35px;
-            border: 1px solid var(--primary);
-            background: transparent;
-            color: var(--primary);
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-decoration: none;
-            position: relative;
-            overflow: hidden;
-            transition: 0.4s;
-        }
+nav{
+    width:100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:999;
+    backdrop-filter:blur(18px);
+    background:rgba(0,0,0,0.45);
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
 
-        .btn-luxury:hover {
-            background: var(--primary);
-            color: var(--bg-dark);
-            box-shadow: 0 0 30px var(--accent-glow);
-        }
+.nav-container{
+    width:90%;
+    max-width:1400px;
+    margin:auto;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:18px 0;
+}
 
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 50px;
-        }
+.logo{
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
 
-        .service-card {
-            background: var(--bg-card);
-            padding: 40px;
-            border-radius: 5px;
-            border-left: 3px solid var(--primary);
-            transition: 0.5s;
-            backdrop-filter: blur(5px);
-            position: relative;
-        }
+.logo img{
+    width:58px;
+    height:58px;
+    object-fit:contain;
+}
 
-        .service-card:hover {
-            transform: translateY(-10px);
-            background: rgba(56, 189, 248, 0.05);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+.logo h1{
+    font-size:1.3rem;
+    font-weight:800;
+    line-height:1;
+}
 
-        .service-card h3 {
-            font-family: 'Syncopate', sans-serif;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-            color: var(--primary);
-        }
+.logo span{
+    color:var(--primary);
+}
 
-        .service-card p {
-            font-size: 0.9rem;
-            color: #94a3b8;
-        }
+.menu{
+    display:flex;
+    gap:35px;
+}
 
-        /* Floating Actions */
-        .social-float {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 1000;
-        }
+.menu a{
+    color:white;
+    font-weight:600;
+    transition:.3s;
+    position:relative;
+}
 
-        .social-icon {
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--bg-card);
-            border: 1px solid var(--primary);
-            transition: 0.3s;
-        }
+.menu a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-8px;
+    width:0%;
+    height:2px;
+    background:var(--primary);
+    transition:.3s;
+}
 
-        .social-icon:hover {
-            transform: scale(1.1) rotate(10deg);
-            background: var(--primary);
-        }
+.menu a:hover::after{
+    width:100%;
+}
 
-        .social-icon img {
-            width: 25px;
-            filter: invert(1);
-        }
+.nav-btn{
+    padding:14px 24px;
+    border-radius:50px;
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:white;
+    font-weight:700;
+    box-shadow:0 0 30px rgba(0,170,255,0.35);
+    transition:.3s;
+}
 
-        /* Scroll Progress */
-        #progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: var(--primary);
-            z-index: 1001;
-        }
+.nav-btn:hover{
+    transform:translateY(-3px);
+}
 
-        @media (max-width: 768px) {
-            section { padding: 80px 5%; }
-            .hero h1 { font-size: 3rem; }
-            .hero-cta { flex-direction: column; }
-            #cursor { display: none; }
-            * { cursor: auto; }
-        }
-    </style>
+/* ========================= */
+/* HERO */
+/* ========================= */
+
+.hero{
+    min-height:100vh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+    linear-gradient(to bottom,rgba(0,0,0,.75),rgba(0,0,0,.85)),
+    url("gtr2.jpg") center/cover no-repeat;
+    transform:scale(1.05);
+}
+
+.blur{
+    position:absolute;
+    width:500px;
+    height:500px;
+    border-radius:50%;
+    background:rgba(0,170,255,.15);
+    filter:blur(100px);
+    animation:float 8s ease-in-out infinite;
+}
+
+.blur:nth-child(1){
+    top:-120px;
+    left:-120px;
+}
+
+.blur:nth-child(2){
+    bottom:-150px;
+    right:-150px;
+    animation-delay:2s;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(30px);
+    }
+}
+
+.hero-content{
+    width:90%;
+    max-width:1350px;
+    position:relative;
+    z-index:5;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.hero-text small{
+    color:var(--primary);
+    font-size:1rem;
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.hero-text h2{
+    font-size:5rem;
+    font-weight:900;
+    line-height:1;
+    margin:20px 0;
+}
+
+.hero-text h2 span{
+    color:var(--primary);
+}
+
+.hero-text p{
+    max-width:650px;
+    color:#d1d5db;
+    line-height:1.8;
+    font-size:1.08rem;
+}
+
+.hero-buttons{
+    margin-top:35px;
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:18px 34px;
+    border-radius:60px;
+    font-weight:700;
+    transition:.35s;
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.primary{
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    color:white;
+    box-shadow:0 0 40px rgba(0,170,255,0.45);
+}
+
+.primary:hover{
+    transform:translateY(-5px) scale(1.03);
+}
+
+.secondary{
+    border:1px solid rgba(255,255,255,.2);
+    background:rgba(255,255,255,.05);
+    color:white;
+    backdrop-filter:blur(10px);
+}
+
+.secondary:hover{
+    background:rgba(255,255,255,.08);
+}
+
+.hero-card{
+    position:relative;
+}
+
+.hero-card img{
+    width:100%;
+    max-width:700px;
+    margin:auto;
+    filter:drop-shadow(0 0 50px rgba(0,170,255,.35));
+    animation:car 5s ease-in-out infinite;
+}
+
+@keyframes car{
+    0%,100%{
+        transform:translateY(0px);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
+}
+
+/* ========================= */
+/* STATS */
+/* ========================= */
+
+.stats{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+    margin-top:-80px;
+    position:relative;
+    z-index:10;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+.stat{
+    background:rgba(255,255,255,.05);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:28px;
+    padding:35px;
+    text-align:center;
+    transition:.4s;
+}
+
+.stat:hover{
+    transform:translateY(-10px);
+    border-color:rgba(0,170,255,.5);
+    box-shadow:0 0 40px rgba(0,170,255,.18);
+}
+
+.stat i{
+    font-size:2.3rem;
+    color:var(--primary);
+    margin-bottom:15px;
+}
+
+.stat h3{
+    font-size:2.3rem;
+    margin-bottom:10px;
+}
+
+.stat p{
+    color:#cbd5e1;
+}
+
+/* ========================= */
+/* SECTION */
+/* ========================= */
+
+section{
+    padding:120px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.section-title span{
+    color:var(--primary);
+    font-weight:700;
+    letter-spacing:2px;
+}
+
+.section-title h2{
+    font-size:3rem;
+    margin-top:10px;
+}
+
+.section-title p{
+    color:#cbd5e1;
+    max-width:750px;
+    margin:auto;
+    margin-top:15px;
+    line-height:1.7;
+}
+
+/* ========================= */
+/* SERVIÇOS */
+/* ========================= */
+
+.services-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.service-card{
+    position:relative;
+    overflow:hidden;
+    border-radius:28px;
+    padding:40px;
+    background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.08);
+    transition:.45s;
+}
+
+.service-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,rgba(0,170,255,.18),transparent);
+    opacity:0;
+    transition:.45s;
+}
+
+.service-card:hover::before{
+    opacity:1;
+}
+
+.service-card:hover{
+    transform:translateY(-15px);
+    border-color:rgba(0,170,255,.5);
+    box-shadow:0 0 40px rgba(0,170,255,.18);
+}
+
+.service-card i{
+    font-size:2.7rem;
+    color:var(--primary);
+    margin-bottom:25px;
+}
+
+.service-card h3{
+    font-size:1.5rem;
+    margin-bottom:15px;
+}
+
+.service-card p{
+    color:#d1d5db;
+    line-height:1.8;
+}
+
+/* ========================= */
+/* GALERIA */
+/* ========================= */
+
+.gallery{
+    background:linear-gradient(180deg,#020617,#061120);
+}
+
+.gallery-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.gallery-item{
+    overflow:hidden;
+    border-radius:25px;
+    position:relative;
+    cursor:pointer;
+}
+
+.gallery-item img{
+    height:100%;
+    object-fit:cover;
+    transition:0.5s;
+}
+
+.gallery-item:hover img{
+    transform:scale(1.08);
+}
+
+.overlay{
+    position:absolute;
+    inset:0;
+    background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+    display:flex;
+    align-items:flex-end;
+    padding:30px;
+}
+
+.overlay h4{
+    font-size:1.4rem;
+}
+
+/* ========================= */
+/* DIFERENCIAL */
+/* ========================= */
+
+.about{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+    align-items:center;
+}
+
+.about img{
+    border-radius:35px;
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 0 50px rgba(0,170,255,.12);
+}
+
+.about-content h2{
+    font-size:3rem;
+    margin-bottom:25px;
+}
+
+.about-content h2 span{
+    color:var(--primary);
+}
+
+.about-content p{
+    color:#d1d5db;
+    line-height:1.9;
+    margin-bottom:20px;
+}
+
+.checks{
+    display:grid;
+    gap:18px;
+    margin-top:30px;
+}
+
+.check{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    padding:18px 22px;
+    border-radius:18px;
+}
+
+.check i{
+    color:var(--primary);
+    font-size:1.2rem;
+}
+
+/* ========================= */
+/* CTA */
+/* ========================= */
+
+.cta-section{
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.cta-box{
+    position:relative;
+    z-index:2;
+    padding:80px 40px;
+    border-radius:35px;
+    background:linear-gradient(135deg,#02111d,#041b30);
+    border:1px solid rgba(255,255,255,.08);
+    box-shadow:0 0 60px rgba(0,170,255,.12);
+}
+
+.cta-box h2{
+    font-size:3rem;
+    margin-bottom:20px;
+}
+
+.cta-box p{
+    color:#d1d5db;
+    max-width:800px;
+    margin:auto;
+    line-height:1.8;
+}
+
+.cta-actions{
+    margin-top:40px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+/* ========================= */
+/* FOOTER */
+/* ========================= */
+
+footer{
+    padding:70px 8%;
+    background:#01040b;
+    border-top:1px solid rgba(255,255,255,.08);
+}
+
+.footer-grid{
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+}
+
+.footer-about p{
+    margin-top:20px;
+    color:#9ca3af;
+    line-height:1.8;
+}
+
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+}
+
+.footer-links a{
+    color:#d1d5db;
+    transition:.3s;
+}
+
+.footer-links a:hover{
+    color:var(--primary);
+}
+
+.social{
+    display:flex;
+    gap:15px;
+    margin-top:20px;
+}
+
+.social a{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
+    color:white;
+    transition:.3s;
+}
+
+.social a:hover{
+    transform:translateY(-5px);
+    background:var(--primary);
+}
+
+.copy{
+    text-align:center;
+    margin-top:60px;
+    color:#6b7280;
+}
+
+/* ========================= */
+/* FLOAT BUTTONS */
+/* ========================= */
+
+.float{
+    position:fixed;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:1.5rem;
+    z-index:999;
+    box-shadow:0 0 30px rgba(0,0,0,.35);
+    animation:pulse 2s infinite;
+}
+
+.float-whatsapp{
+    bottom:25px;
+    right:25px;
+    background:#25d366;
+}
+
+.float-instagram{
+    bottom:100px;
+    right:25px;
+    background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
+}
+
+@keyframes pulse{
+    0%,100%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+/* ========================= */
+/* RESPONSIVO */
+/* ========================= */
+
+@media(max-width:1100px){
+
+.hero-content,
+.about{
+    grid-template-columns:1fr;
+    text-align:center;
+}
+
+.hero-text p{
+    margin:auto;
+}
+
+.hero-buttons{
+    justify-content:center;
+}
+
+.hero-text h2{
+    font-size:4rem;
+}
+
+.about-content{
+    order:2;
+}
+
+.about img{
+    max-width:700px;
+    margin:auto;
+}
+
+.stats-grid{
+    grid-template-columns:repeat(2,1fr);
+}
+
+.footer-grid{
+    grid-template-columns:1fr;
+}
+
+}
+
+@media(max-width:768px){
+
+.menu{
+    display:none;
+}
+
+.hero{
+    padding-top:120px;
+}
+
+.hero-text h2{
+    font-size:2.8rem;
+}
+
+.section-title h2,
+.about-content h2,
+.cta-box h2{
+    font-size:2rem;
+}
+
+.stats-grid{
+    grid-template-columns:1fr;
+}
+
+.cta-actions{
+    flex-direction:column;
+}
+
+.btn{
+    justify-content:center;
+}
+
+.hero-card img{
+    max-width:95%;
+}
+
+.logo h1{
+    font-size:1rem;
+}
+
+.nav-btn{
+    padding:12px 18px;
+    font-size:.9rem;
+}
+
+}
+
+</style>
 </head>
+
 <body>
 
-    <div id="cursor"></div>
-    <div id="progress"></div>
+<!-- NAV -->
 
-    <nav>
-        <div class="nav-logo">CRAZY DETAILS</div>
-        <div class="nav-contact" style="font-size: 0.8rem; letter-spacing: 1px;">ESTÉTICA AUTOMOTIVA</div>
-    </nav>
+<nav>
+    <div class="nav-container">
 
-    <section class="hero">
-        <div class="reveal">
-            <h1>The Art of <br><span>Detailing</span></h1>
-            <p style="max-width: 600px; font-size: 1.1rem; color: #94a3b8;">
-                Não é apenas lavagem. É engenharia estética. Elevamos o padrão do seu veículo com tecnologias de proteção de elite.
+        <div class="logo">
+            <img src="logo.png" alt="">
+            <h1>CRAZY <span>DETAILS</span></h1>
+        </div>
+
+        <div class="menu">
+            <a href="#servicos">Serviços</a>
+            <a href="#galeria">Galeria</a>
+            <a href="#sobre">Diferenciais</a>
+            <a href="#contato">Contato</a>
+        </div>
+
+        <a href="https://wa.me/5562991225645" class="nav-btn" target="_blank">
+            Agendar
+        </a>
+
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="blur"></div>
+    <div class="blur"></div>
+
+    <div class="hero-content">
+
+        <div class="hero-text">
+
+            <small>ESTÉTICA AUTOMOTIVA PREMIUM</small>
+
+            <h2>
+                O cuidado que seu carro
+                <span>merece.</span>
+            </h2>
+
+            <p>
+                Transformamos veículos com técnicas profissionais de detalhamento,
+                higienização, polimento e acabamento premium.
+                Atendimento profissional, resultado impecável e experiência diferenciada.
             </p>
-            <div class="hero-cta">
-                <a href="https://wa.me/5562991225645" target="_blank" class="btn-luxury">Agendar Experiência</a>
-                <a href="#servicos" class="btn-luxury" style="border-color: rgba(255,255,255,0.2); color: white;">Ver Serviços</a>
-            </div>
-        </div>
-    </section>
 
-    <section id="servicos">
-        <h2 style="font-family: 'Syncopate'; margin-bottom: 40px;">Soluções <span style="color: var(--primary);">Premium</span></h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>01. Detalhamento</h3>
-                <p>Lavagem técnica minuciosa com descontaminação ferrosa e proteção básica de pintura.</p>
-            </div>
-            <div class="service-card">
-                <h3>02. Vitrificação</h3>
-                <p>Proteção cerâmica de alta dureza (9H). Brilho extremo e repelência a líquidos por anos.</p>
-            </div>
-            <div class="service-card">
-                <h3>03. Polimento</h3>
-                <p>Correção técnica de pintura para remoção de hologramas e riscos superficiais.</p>
-            </div>
-            <div class="service-card">
-                <h3>04. Interior</h3>
-                <p>Higienização profunda com extração de ácaros e hidratação de couros nobres.</p>
-            </div>
-        </div>
-    </section>
+            <div class="hero-buttons">
 
-    <section style="min-height: 60vh; background: #000;">
-        <div style="text-align: center;">
-            <h2 style="font-family: 'Syncopate';">GOIÂNIA • GO</h2>
-            <p style="margin: 20px 0; opacity: 0.6;">Atendimento exclusivo sob agendamento.</p>
-            <a href="https://www.google.com/maps" target="_blank" class="btn-luxury">Como Chegar</a>
-        </div>
-        <footer style="margin-top: 100px; border-top: 1px solid #1e293b; padding-top: 40px; font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px; text-align: center;">
-            © 2026 CRAZY DETAILS | MADE FOR ENTHUSIASTS
-        </footer>
-    </section>
+                <a href="https://wa.me/5562991225645"
+                   target="_blank"
+                   class="btn primary">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    Solicitar Orçamento
+                </a>
 
-    <div class="social-float">
-        <a href="https://www.instagram.com/crazy_detailss" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-        </a>
-        <a href="https://wa.me/5562991225645" target="_blank" class="social-icon">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-        </a>
+                <a href="https://www.instagram.com/crazy_detailss/"
+                   target="_blank"
+                   class="btn secondary">
+                    <i class="fa-brands fa-instagram"></i>
+                    Ver Instagram
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="hero-card">
+            <img src="logo.png" alt="">
+        </div>
+
     </div>
 
-    <script>
-        // Custom Cursor Movement
-        const cursor = document.querySelector('#cursor');
-        document.addEventListener('mousemove', (e) => {
-            cursor.style.left = e.clientX + 'px';
-            cursor.style.top = e.clientY + 'px';
-        });
+</section>
 
-        // GSAP Animations
-        gsap.registerPlugin(ScrollTrigger);
+<!-- STATS -->
 
-        // Barra de progresso no topo
-        gsap.to("#progress", {
-            width: "100%",
-            ease: "none",
-            scrollTrigger: { scrub: 0.3 }
-        });
+<div class="stats">
 
-        // Revelação da Hero
-        gsap.from(".hero h1", {
-            y: 100,
-            opacity: 0,
-            duration: 1.5,
-            ease: "power4.out"
-        });
+    <div class="stats-grid">
 
-        // Animação dos Cards no Scroll
-        gsap.from(".service-card", {
-            scrollTrigger: {
-                trigger: ".services-grid",
-                start: "top 80%"
-            },
-            y: 50,
-            opacity: 0,
-            stagger: 0.2,
-            duration: 1
-        });
+        <div class="stat">
+            <i class="fa-solid fa-car-side"></i>
+            <h3>+500</h3>
+            <p>Veículos atendidos</p>
+        </div>
 
-        // Efeito Magnético sutil no cursor ao passar em botões
-        const buttons = document.querySelectorAll('.btn-luxury, .social-icon');
-        buttons.forEach(btn => {
-            btn.addEventListener('mouseenter', () => {
-                cursor.style.transform = 'scale(4)';
-                cursor.style.background = 'transparent';
-                cursor.style.border = '1px solid var(--primary)';
-            });
-            btn.addEventListener('mouseleave', () => {
-                cursor.style.transform = 'scale(1)';
-                cursor.style.background = 'var(--primary)';
-                cursor.style.border = 'none';
-            });
-        });
-    </script>
+        <div class="stat">
+            <i class="fa-solid fa-star"></i>
+            <h3>100%</h3>
+            <p>Clientes satisfeitos</p>
+        </div>
+
+        <div class="stat">
+            <i class="fa-solid fa-shield-heart"></i>
+            <h3>Premium</h3>
+            <p>Produtos profissionais</p>
+        </div>
+
+        <div class="stat">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Rápido</h3>
+            <p>Agendamento facilitado</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- SERVIÇOS -->
+
+<section id="servicos">
+
+    <div class="section-title">
+
+        <span>NOSSOS SERVIÇOS</span>
+
+        <h2>Detalhamento automotivo de alto nível</h2>
+
+        <p>
+            Trabalhamos com equipamentos profissionais e técnicas avançadas
+            para entregar o máximo de qualidade e acabamento.
+        </p>
+
+    </div>
+
+    <div class="services-grid">
+
+        <div class="service-card">
+            <i class="fa-solid fa-soap"></i>
+            <h3>Lavagem Técnica</h3>
+            <p>
+                Limpeza detalhada da parte externa utilizando produtos premium
+                para brilho intenso e proteção da pintura.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-couch"></i>
+            <h3>Higienização Interna</h3>
+            <p>
+                Limpeza profunda de bancos, carpetes, teto e painéis removendo
+                sujeiras, ácaros e odores.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+            <h3>Polimento Técnico</h3>
+            <p>
+                Correção de pintura com revitalização do brilho
+                e remoção de marcas superficiais.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-gem"></i>
+            <h3>Vitrificação</h3>
+            <p>
+                Proteção premium para pintura com efeito espelhado
+                e maior durabilidade.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-wind"></i>
+            <h3>Limpeza de Motor</h3>
+            <p>
+                Higienização segura e profissional do cofre do motor
+                com acabamento impecável.
+            </p>
+        </div>
+
+        <div class="service-card">
+            <i class="fa-solid fa-car-burst"></i>
+            <h3>Detalhamento Completo</h3>
+            <p>
+                Tratamento premium completo deixando seu carro
+                renovado por dentro e por fora.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- GALERIA -->
+
+<section class="gallery" id="galeria">
+
+    <div class="section-title">
+
+        <span>RESULTADOS</span>
+
+        <h2>Qualidade que impressiona</h2>
+
+        <p>
+            Cada detalhe importa. Veja alguns resultados e transformações
+            realizados pela Crazy Details.
+        </p>
+
+    </div>
+
+    <div class="gallery-grid">
+
+        <div class="gallery-item">
+            <img src="gtr2.jpg" alt="">
+            <div class="overlay">
+                <h4>Acabamento Premium</h4>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="gtr.jpg" alt="">
+            <div class="overlay">
+                <h4>Brilho Intenso</h4>
+            </div>
+        </div>
+
+        <div class="gallery-item">
+            <img src="gtr3.jpg" alt="">
+            <div class="overlay">
+                <h4>Detalhamento Completo</h4>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SOBRE -->
+
+<section id="sobre">
+
+    <div class="about">
+
+        <img src="logo.png" alt="">
+
+        <div class="about-content">
+
+            <h2>
+                Muito além de uma lavagem.
+                <span>Uma experiência.</span>
+            </h2>
+
+            <p>
+                A Crazy Details nasceu para entregar um novo nível de estética automotiva,
+                unindo qualidade, dedicação e acabamento premium em cada detalhe.
+            </p>
+
+            <p>
+                Trabalhamos com foco total na satisfação do cliente,
+                utilizando produtos profissionais e técnicas modernas para garantir
+                resultados impressionantes.
+            </p>
+
+            <div class="checks">
+
+                <div class="check">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Atendimento profissional e personalizado
+                </div>
+
+                <div class="check">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Produtos premium e equipamentos modernos
+                </div>
+
+                <div class="check">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Qualidade, brilho e acabamento impecável
+                </div>
+
+                <div class="check">
+                    <i class="fa-solid fa-circle-check"></i>
+                    Atendimento domiciliar e agendamento rápido
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section" id="contato">
+
+    <div class="cta-box">
+
+        <h2>Seu carro merece o melhor.</h2>
+
+        <p>
+            Solicite agora seu orçamento e transforme completamente
+            o visual do seu veículo com a Crazy Details.
+        </p>
+
+        <div class="cta-actions">
+
+            <a href="https://wa.me/5562991225645"
+               target="_blank"
+               class="btn primary">
+                <i class="fa-brands fa-whatsapp"></i>
+                Chamar no WhatsApp
+            </a>
+
+            <a href="https://maps.google.com/?q=-16.688385009765625,-49.22149658203125"
+               target="_blank"
+               class="btn secondary">
+                <i class="fa-solid fa-location-dot"></i>
+                Ver Localização
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-about">
+
+            <div class="logo">
+                <img src="logo.png" alt="">
+                <h1>CRAZY <span>DETAILS</span></h1>
+            </div>
+
+            <p>
+                Estética automotiva premium especializada em detalhamento,
+                higienização, polimento e acabamento profissional.
+            </p>
+
+            <div class="social">
+
+                <a href="https://www.instagram.com/crazy_detailss/" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+
+                <a href="https://wa.me/5562991225645" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+
+                <a href="https://maps.google.com/?q=-16.688385009765625,-49.22149658203125" target="_blank">
+                    <i class="fa-solid fa-location-dot"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+        <div>
+
+            <h3 style="margin-bottom:25px;">Navegação</h3>
+
+            <div class="footer-links">
+                <a href="#servicos">Serviços</a>
+                <a href="#galeria">Galeria</a>
+                <a href="#sobre">Sobre</a>
+                <a href="#contato">Contato</a>
+            </div>
+
+        </div>
+
+        <div>
+
+            <h3 style="margin-bottom:25px;">Contato</h3>
+
+            <div class="footer-links">
+                <a href="#">(62) 99122-5645</a>
+                <a href="#">@crazy_detailss</a>
+                <a href="#">Goiânia - GO</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="copy">
+        © 2026 Crazy Details — Todos os direitos reservados.
+    </div>
+
+</footer>
+
+<!-- FLOAT BUTTONS -->
+
+<a href="https://wa.me/5562991225645"
+   class="float float-whatsapp"
+   target="_blank">
+   <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<a href="https://www.instagram.com/crazy_detailss/"
+   class="float float-instagram"
+   target="_blank">
+   <i class="fa-brands fa-instagram"></i>
+</a>
+
+<script>
+
+/* EFEITO SCROLL NAV */
+
+window.addEventListener("scroll",()=>{
+
+    const nav = document.querySelector("nav");
+
+    if(window.scrollY > 80){
+        nav.style.background = "rgba(0,0,0,0.75)";
+    }else{
+        nav.style.background = "rgba(0,0,0,0.45)";
+    }
+
+});
+
+/* ANIMAÇÃO ENTRADA */
+
+const observer = new IntersectionObserver((entries)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = "translateY(0px)";
+
+        }
+
+    });
+
+},{threshold:0.15});
+
+document.querySelectorAll(".service-card,.gallery-item,.stat,.about img,.about-content,.cta-box")
+.forEach((el)=>{
+
+    el.style.opacity = 0;
+    el.style.transform = "translateY(60px)";
+    el.style.transition = ".8s ease";
+
+    observer.observe(el);
+
+});
+
+</script>
+
 </body>
 </html>

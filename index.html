@@ -1,312 +1,337 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="logo.png" type="image/png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crazy Details | Elite Automotive Aesthetic</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
-<title>Crazy Details | Estética Automotiva</title>
+    <style>
+        :root {
+            --primary: #38bdf8;
+            --bg-dark: #020617;
+            --bg-card: rgba(15, 23, 42, 0.6);
+            --text-main: #f8fafc;
+            --accent-glow: rgba(56, 189, 248, 0.3);
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none; /* Cursor personalizado ativado */
+        }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Montserrat', sans-serif;
-}
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+        /* Custom Cursor */
+        #cursor {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--primary);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            box-shadow: 0 0 15px var(--primary);
+            transition: transform 0.1s;
+        }
 
-body {
-    background: radial-gradient(circle at top, #0f172a, #020617);
-    color: white;
-    overflow-x: hidden;
-}
+        /* Layout Imersivo */
+        section {
+            padding: 100px 10% ;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-/* HEADER */
-header {
-    position: relative;
-    padding: 140px 20px;
-    text-align: center;
-    min-height: 60vh;
-    background: linear-gradient(to bottom, rgba(2, 6, 23, 0.45), rgba(2, 6, 23, 0.75)),
-                url("gtr2.jpg") no-repeat center;
-    background-size: cover;
-    background-position: center;
-    animation: fadeIn 1.5s ease-in-out;
-}
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 25px 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
 
-.logo {
-    font-size: 42px;
-    font-weight: 800;
-    color: #38bdf8;
-    text-shadow: 0 0 20px rgba(56,189,248,0.6);
-}
+        .nav-logo {
+            font-family: 'Syncopate', sans-serif;
+            font-weight: 700;
+            letter-spacing: 4px;
+            color: var(--primary);
+            font-size: 1.2rem;
+        }
 
-.cta {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 18px;
-}
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(2, 6, 23, 0.8), rgba(2, 6, 23, 0.8)),
+                        url('https://images.unsplash.com/photo-1603584173870-7f3ca9940280?auto=format&fit=crop&q=80&w=2000') no-repeat center;
+            background-size: cover;
+            text-align: left;
+            position: relative;
+        }
 
-.btn {
-    display: inline-block;
-    padding: 16px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-}
+        .hero h1 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            line-height: 1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
 
-.btn-primary {
-    background: #38bdf8;
-    color: #020617;
-    box-shadow: 0 0 15px #38bdf8;
-}
+        .hero h1 span {
+            color: transparent;
+            -webkit-text-stroke: 1px var(--primary);
+        }
 
-.btn-primary:hover {
-    box-shadow: 0 0 30px #38bdf8;
-    transform: translateY(-3px);
-}
+        .hero-cta {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
 
-/* SERVIÇOS */
-.services {
-    padding: 80px 20px;
-    text-align: center;
-}
+        .btn-luxury {
+            padding: 18px 35px;
+            border: 1px solid var(--primary);
+            background: transparent;
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            transition: 0.4s;
+        }
 
-.services h2 {
-    margin-bottom: 50px;
-    font-size: 32px;
-}
+        .btn-luxury:hover {
+            background: var(--primary);
+            color: var(--bg-dark);
+            box-shadow: 0 0 30px var(--accent-glow);
+        }
 
-.cards {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
 
-.card {
-    backdrop-filter: blur(15px);
-    background: rgba(255,255,255,0.05);
-    padding: 30px;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 300px;
-    transition: 0.4s;
-    border: 1px solid rgba(255,255,255,0.1);
-}
+        .service-card {
+            background: var(--bg-card);
+            padding: 40px;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary);
+            transition: 0.5s;
+            backdrop-filter: blur(5px);
+            position: relative;
+        }
 
-.card:hover {
-    transform: translateY(-12px) scale(1.04);
-    border-color: #38bdf8;
-    box-shadow: 0 0 25px rgba(56,189,248,0.4);
-}
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(56, 189, 248, 0.05);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
-.card h3 {
-    margin-bottom: 12px;
-    color: #38bdf8;
-}
+        .service-card h3 {
+            font-family: 'Syncopate', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
 
-/* DIFERENCIAL */
-.diferencial {
-    padding: 80px 20px;
-    background: linear-gradient(180deg, #020617, #0f172a);
-    text-align: center;
-}
+        .service-card p {
+            font-size: 0.9rem;
+            color: #94a3b8;
+        }
 
-.diferencial p {
-    max-width: 700px;
-    margin: 20px auto;
-    opacity: 0.85;
-    line-height: 1.6;
-}
+        /* Floating Actions */
+        .social-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            z-index: 1000;
+        }
 
-/* BOTÕES FLUTUANTES */
-.float-whatsapp,
-.float-instagram {
-    position: fixed;
-    bottom: 20px;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1000;
-    animation: pulse 1.8s infinite;
-}
+        .social-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--primary);
+            transition: 0.3s;
+        }
 
-.float-whatsapp {
-    right: 20px;
-    background: #25d366;
-    box-shadow: 0 10px 30px rgba(37,211,102,0.6);
-}
+        .social-icon:hover {
+            transform: scale(1.1) rotate(10deg);
+            background: var(--primary);
+        }
 
-.float-instagram {
-    left: 20px;
-    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
-    box-shadow: 0 10px 30px rgba(221,42,123,0.6);
-}
+        .social-icon img {
+            width: 25px;
+            filter: invert(1);
+        }
 
-.float-whatsapp img,
-.float-instagram img {
-    width: 32px;
-    height: 32px;
-}
+        /* Scroll Progress */
+        #progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--primary);
+            z-index: 1001;
+        }
 
-/* ANIMAÇÕES */
-@keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.08); }
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-footer {
-    padding: 30px 20px;
-    text-align: center;
-    opacity: 0.6;
-    font-size: 14px;
-}
-
-/* RESPONSIVO MOBILE */
-@media (max-width: 768px) {
-    header {
-        padding: 100px 15px;
-        min-height: 50vh;
-        background-position: center 35%;
-    }
-
-    .logo {
-        font-size: 36px;
-    }
-
-    .cta {
-        gap: 16px;
-    }
-
-    .btn {
-        padding: 14px 30px;
-        font-size: 1rem;
-        max-width: 280px;
-    }
-
-    .services, .diferencial {
-        padding: 60px 15px;
-    }
-
-    .cards {
-        gap: 20px;
-    }
-
-    .float-whatsapp, .float-instagram {
-        width: 55px;
-        height: 55px;
-        bottom: 15px;
-    }
-
-    .float-whatsapp img, .float-instagram img {
-        width: 28px;
-        height: 28px;
-    }
-}
-
-@media (min-width: 769px) {
-    .cta {
-        flex-direction: row;
-        justify-content: center;
-    }
-
-    .btn {
-        width: auto;
-        max-width: none;
-        padding: 16px 45px;
-    }
-}
-</style>
+        @media (max-width: 768px) {
+            section { padding: 80px 5%; }
+            .hero h1 { font-size: 3rem; }
+            .hero-cta { flex-direction: column; }
+            #cursor { display: none; }
+            * { cursor: auto; }
+        }
+    </style>
 </head>
-
 <body>
 
-<header>
-    <div class="logo">CRAZY DETAILS</div>
+    <div id="cursor"></div>
+    <div id="progress"></div>
 
-    <div class="cta">
-        <a href="http://wa.me/5562991225645"
-           target="_blank"
-           class="btn btn-primary">Agendar Agora</a>
+    <nav>
+        <div class="nav-logo">CRAZY DETAILS</div>
+        <div class="nav-contact" style="font-size: 0.8rem; letter-spacing: 1px;">ESTÉTICA AUTOMOTIVA</div>
+    </nav>
 
-        <a href="https://www.google.com/maps?q=-16.688385009765625,-49.22149658203125&z=17&hl=pt-BR"
-           target="_blank"
-           class="btn btn-primary">Ver Localização</a>
+    <section class="hero">
+        <div class="reveal">
+            <h1>The Art of <br><span>Detailing</span></h1>
+            <p style="max-width: 600px; font-size: 1.1rem; color: #94a3b8;">
+                Não é apenas lavagem. É engenharia estética. Elevamos o padrão do seu veículo com tecnologias de proteção de elite.
+            </p>
+            <div class="hero-cta">
+                <a href="https://wa.me/5562991225645" target="_blank" class="btn-luxury">Agendar Experiência</a>
+                <a href="#servicos" class="btn-luxury" style="border-color: rgba(255,255,255,0.2); color: white;">Ver Serviços</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos">
+        <h2 style="font-family: 'Syncopate'; margin-bottom: 40px;">Soluções <span style="color: var(--primary);">Premium</span></h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>01. Detalhamento</h3>
+                <p>Lavagem técnica minuciosa com descontaminação ferrosa e proteção básica de pintura.</p>
+            </div>
+            <div class="service-card">
+                <h3>02. Vitrificação</h3>
+                <p>Proteção cerâmica de alta dureza (9H). Brilho extremo e repelência a líquidos por anos.</p>
+            </div>
+            <div class="service-card">
+                <h3>03. Polimento</h3>
+                <p>Correção técnica de pintura para remoção de hologramas e riscos superficiais.</p>
+            </div>
+            <div class="service-card">
+                <h3>04. Interior</h3>
+                <p>Higienização profunda com extração de ácaros e hidratação de couros nobres.</p>
+            </div>
+        </div>
+    </section>
+
+    <section style="min-height: 60vh; background: #000;">
+        <div style="text-align: center;">
+            <h2 style="font-family: 'Syncopate';">GOIÂNIA • GO</h2>
+            <p style="margin: 20px 0; opacity: 0.6;">Atendimento exclusivo sob agendamento.</p>
+            <a href="https://www.google.com/maps" target="_blank" class="btn-luxury">Como Chegar</a>
+        </div>
+        <footer style="margin-top: 100px; border-top: 1px solid #1e293b; padding-top: 40px; font-size: 0.7rem; opacity: 0.4; letter-spacing: 2px; text-align: center;">
+            © 2026 CRAZY DETAILS | MADE FOR ENTHUSIASTS
+        </footer>
+    </section>
+
+    <div class="social-float">
+        <a href="https://www.instagram.com/crazy_detailss" target="_blank" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://wa.me/5562991225645" target="_blank" class="social-icon">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+        </a>
     </div>
-</header>
 
-<section class="services">
-    <h2>Nossos Serviços</h2>
+    <script>
+        // Custom Cursor Movement
+        const cursor = document.querySelector('#cursor');
+        document.addEventListener('mousemove', (e) => {
+            cursor.style.left = e.clientX + 'px';
+            cursor.style.top = e.clientY + 'px';
+        });
 
-    <div class="cards">
-        <div class="card">
-            <h3>Lavagem Detalhada</h3>
-            <p>Lavagem técnica com produtos profissionais.</p>
-        </div>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
 
-        <div class="card">
-            <h3>Higienização Interna</h3>
-            <p>Limpeza profunda de bancos, teto e painéis.</p>
-        </div>
+        // Barra de progresso no topo
+        gsap.to("#progress", {
+            width: "100%",
+            ease: "none",
+            scrollTrigger: { scrub: 0.3 }
+        });
 
-        <div class="card">
-            <h3>Polimento Técnico</h3>
-            <p>Remoção de riscos e revitalização da pintura.</p>
-        </div>
+        // Revelação da Hero
+        gsap.from(".hero h1", {
+            y: 100,
+            opacity: 0,
+            duration: 1.5,
+            ease: "power4.out"
+        });
 
-        <div class="card">
-            <h3>Estética Premium</h3>
-            <p>Tratamento completo para deixar seu carro impecável.</p>
-        </div>
-    </div>
-</section>
+        // Animação dos Cards no Scroll
+        gsap.from(".service-card", {
+            scrollTrigger: {
+                trigger: ".services-grid",
+                start: "top 80%"
+            },
+            y: 50,
+            opacity: 0,
+            stagger: 0.2,
+            duration: 1
+        });
 
-<section class="diferencial">
-    <h2>Por que escolher a Crazy Details?</h2>
-    <p>
-        Trabalhamos com técnicas profissionais de detalhamento automotivo,
-        produtos de alta qualidade e atenção minuciosa aos detalhes.
-        Seu carro não recebe apenas uma lavagem — recebe tratamento premium.
-    </p>
-</section>
-
-<footer>
-    © 2026 Crazy Details - Estética Automotiva
-</footer>
-
-<!-- WhatsApp -->
-<a href="http://wa.me/5562991225645" target="_blank" class="float-whatsapp">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg">
-</a>
-
-<!-- Instagram -->
-<a href="https://www.instagram.com/crazy_detailss?igsh=MXBsYjU0YzR2NWRrdA==" target="_blank" class="float-instagram">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png">
-</a>
-
+        // Efeito Magnético sutil no cursor ao passar em botões
+        const buttons = document.querySelectorAll('.btn-luxury, .social-icon');
+        buttons.forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                cursor.style.transform = 'scale(4)';
+                cursor.style.background = 'transparent';
+                cursor.style.border = '1px solid var(--primary)';
+            });
+            btn.addEventListener('mouseleave', () => {
+                cursor.style.transform = 'scale(1)';
+                cursor.style.background = 'var(--primary)';
+                cursor.style.border = 'none';
+            });
+        });
+    </script>
 </body>
 </html>

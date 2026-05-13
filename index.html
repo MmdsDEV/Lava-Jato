@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <title>Crazy Details | Estética Automotiva Premium</title>
+
+<link rel="icon" href="logo.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,12 +20,11 @@
 
 :root{
     --primary:#00aaff;
-    --primary-dark:#0077ff;
-    --dark:#020617;
-    --dark-2:#071224;
-    --glass:rgba(255,255,255,0.05);
-    --white:#ffffff;
-    --gray:#9ca3af;
+    --primary-dark:#0066ff;
+    --bg:#020617;
+    --bg2:#071224;
+    --card:rgba(255,255,255,.05);
+    --border:rgba(255,255,255,.08);
 }
 
 *{
@@ -48,19 +50,23 @@ a{
     text-decoration:none;
 }
 
+section{
+    padding:110px 8%;
+}
+
 /* ========================= */
 /* NAVBAR */
 /* ========================= */
 
 nav{
-    width:100%;
     position:fixed;
+    width:100%;
     top:0;
-    left:0;
     z-index:999;
     backdrop-filter:blur(18px);
-    background:rgba(0,0,0,0.45);
-    border-bottom:1px solid rgba(255,255,255,0.08);
+    background:rgba(0,0,0,.45);
+    border-bottom:1px solid rgba(255,255,255,.05);
+    transition:.3s;
 }
 
 .nav-container{
@@ -76,19 +82,16 @@ nav{
 .logo{
     display:flex;
     align-items:center;
-    gap:14px;
+    gap:15px;
 }
 
 .logo img{
-    width:58px;
-    height:58px;
-    object-fit:contain;
+    width:60px;
 }
 
 .logo h1{
-    font-size:1.3rem;
+    font-size:1.2rem;
     font-weight:800;
-    line-height:1;
 }
 
 .logo span{
@@ -128,12 +131,12 @@ nav{
     background:linear-gradient(135deg,var(--primary),var(--primary-dark));
     color:white;
     font-weight:700;
-    box-shadow:0 0 30px rgba(0,170,255,0.35);
     transition:.3s;
+    box-shadow:0 0 30px rgba(0,170,255,.35);
 }
 
 .nav-btn:hover{
-    transform:translateY(-3px);
+    transform:translateY(-4px);
 }
 
 /* ========================= */
@@ -142,10 +145,9 @@ nav{
 
 .hero{
     min-height:100vh;
-    position:relative;
     display:flex;
     align-items:center;
-    justify-content:center;
+    position:relative;
     overflow:hidden;
 }
 
@@ -156,7 +158,6 @@ nav{
     background:
     linear-gradient(to bottom,rgba(0,0,0,.75),rgba(0,0,0,.85)),
     url("gtr2.jpg") center/cover no-repeat;
-    transform:scale(1.05);
 }
 
 .blur{
@@ -164,19 +165,19 @@ nav{
     width:500px;
     height:500px;
     border-radius:50%;
-    background:rgba(0,170,255,.15);
+    background:rgba(0,170,255,.12);
     filter:blur(100px);
-    animation:float 8s ease-in-out infinite;
+    animation:float 7s ease-in-out infinite;
 }
 
 .blur:nth-child(1){
-    top:-120px;
-    left:-120px;
+    top:-100px;
+    left:-100px;
 }
 
 .blur:nth-child(2){
-    bottom:-150px;
-    right:-150px;
+    right:-100px;
+    bottom:-100px;
     animation-delay:2s;
 }
 
@@ -185,15 +186,17 @@ nav{
         transform:translateY(0px);
     }
     50%{
-        transform:translateY(30px);
+        transform:translateY(25px);
     }
 }
 
 .hero-content{
     width:90%;
-    max-width:1350px;
+    max-width:1400px;
+    margin:auto;
     position:relative;
     z-index:5;
+
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:60px;
@@ -202,16 +205,15 @@ nav{
 
 .hero-text small{
     color:var(--primary);
-    font-size:1rem;
-    font-weight:700;
     letter-spacing:2px;
+    font-weight:700;
 }
 
 .hero-text h2{
     font-size:5rem;
-    font-weight:900;
     line-height:1;
     margin:20px 0;
+    font-weight:900;
 }
 
 .hero-text h2 span{
@@ -219,10 +221,9 @@ nav{
 }
 
 .hero-text p{
-    max-width:650px;
     color:#d1d5db;
     line-height:1.8;
-    font-size:1.08rem;
+    max-width:650px;
 }
 
 .hero-buttons{
@@ -234,44 +235,38 @@ nav{
 
 .btn{
     padding:18px 34px;
-    border-radius:60px;
+    border-radius:50px;
     font-weight:700;
-    transition:.35s;
     display:flex;
     align-items:center;
     gap:10px;
+    transition:.3s;
 }
 
 .primary{
     background:linear-gradient(135deg,var(--primary),var(--primary-dark));
     color:white;
-    box-shadow:0 0 40px rgba(0,170,255,0.45);
+    box-shadow:0 0 35px rgba(0,170,255,.35);
 }
 
 .primary:hover{
-    transform:translateY(-5px) scale(1.03);
+    transform:translateY(-5px);
 }
 
 .secondary{
-    border:1px solid rgba(255,255,255,.2);
-    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.1);
     color:white;
-    backdrop-filter:blur(10px);
+    background:rgba(255,255,255,.05);
 }
 
 .secondary:hover{
     background:rgba(255,255,255,.08);
 }
 
-.hero-card{
-    position:relative;
-}
-
-.hero-card img{
-    width:100%;
+.hero-image img{
     max-width:700px;
     margin:auto;
-    filter:drop-shadow(0 0 50px rgba(0,170,255,.35));
+    filter:drop-shadow(0 0 50px rgba(0,170,255,.25));
     animation:car 5s ease-in-out infinite;
 }
 
@@ -305,8 +300,8 @@ nav{
 
 .stat{
     background:rgba(255,255,255,.05);
-    backdrop-filter:blur(18px);
     border:1px solid rgba(255,255,255,.08);
+    backdrop-filter:blur(15px);
     border-radius:28px;
     padding:35px;
     text-align:center;
@@ -316,31 +311,23 @@ nav{
 .stat:hover{
     transform:translateY(-10px);
     border-color:rgba(0,170,255,.5);
-    box-shadow:0 0 40px rgba(0,170,255,.18);
+    box-shadow:0 0 40px rgba(0,170,255,.15);
 }
 
 .stat i{
-    font-size:2.3rem;
+    font-size:2rem;
     color:var(--primary);
     margin-bottom:15px;
 }
 
 .stat h3{
-    font-size:2.3rem;
+    font-size:2rem;
     margin-bottom:10px;
 }
 
-.stat p{
-    color:#cbd5e1;
-}
-
 /* ========================= */
-/* SECTION */
+/* TITULOS */
 /* ========================= */
-
-section{
-    padding:120px 8%;
-}
 
 .section-title{
     text-align:center;
@@ -360,15 +347,47 @@ section{
 
 .section-title p{
     color:#cbd5e1;
-    max-width:750px;
+    max-width:700px;
     margin:auto;
     margin-top:15px;
-    line-height:1.7;
+    line-height:1.8;
 }
 
 /* ========================= */
 /* SERVIÇOS */
 /* ========================= */
+
+.services-category{
+    margin-bottom:100px;
+}
+
+.category-title{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    margin-bottom:40px;
+}
+
+.category-icon{
+    width:70px;
+    height:70px;
+    border-radius:20px;
+    background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:1.8rem;
+    box-shadow:0 0 30px rgba(0,170,255,.3);
+}
+
+.category-title h3{
+    font-size:2.2rem;
+}
+
+.category-title p{
+    color:#9ca3af;
+    margin-top:8px;
+}
 
 .services-grid{
     display:grid;
@@ -377,22 +396,22 @@ section{
 }
 
 .service-card{
-    position:relative;
-    overflow:hidden;
-    border-radius:28px;
-    padding:40px;
     background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));
     border:1px solid rgba(255,255,255,.08);
-    transition:.45s;
+    border-radius:28px;
+    padding:35px;
+    transition:.4s;
+    position:relative;
+    overflow:hidden;
 }
 
 .service-card::before{
     content:"";
     position:absolute;
     inset:0;
-    background:linear-gradient(135deg,rgba(0,170,255,.18),transparent);
+    background:linear-gradient(135deg,rgba(0,170,255,.15),transparent);
     opacity:0;
-    transition:.45s;
+    transition:.4s;
 }
 
 .service-card:hover::before{
@@ -400,18 +419,18 @@ section{
 }
 
 .service-card:hover{
-    transform:translateY(-15px);
-    border-color:rgba(0,170,255,.5);
-    box-shadow:0 0 40px rgba(0,170,255,.18);
+    transform:translateY(-12px);
+    border-color:rgba(0,170,255,.45);
+    box-shadow:0 0 40px rgba(0,170,255,.12);
 }
 
 .service-card i{
-    font-size:2.7rem;
+    font-size:2.5rem;
     color:var(--primary);
-    margin-bottom:25px;
+    margin-bottom:22px;
 }
 
-.service-card h3{
+.service-card h4{
     font-size:1.5rem;
     margin-bottom:15px;
 }
@@ -421,12 +440,20 @@ section{
     line-height:1.8;
 }
 
+.service-card ul{
+    margin-top:25px;
+    display:grid;
+    gap:12px;
+    list-style:none;
+    color:#d1d5db;
+}
+
 /* ========================= */
 /* GALERIA */
 /* ========================= */
 
 .gallery{
-    background:linear-gradient(180deg,#020617,#061120);
+    background:linear-gradient(180deg,#020617,#071224);
 }
 
 .gallery-grid{
@@ -437,15 +464,14 @@ section{
 
 .gallery-item{
     overflow:hidden;
-    border-radius:25px;
+    border-radius:28px;
     position:relative;
-    cursor:pointer;
 }
 
 .gallery-item img{
+    transition:.5s;
     height:100%;
     object-fit:cover;
-    transition:0.5s;
 }
 
 .gallery-item:hover img{
@@ -455,18 +481,18 @@ section{
 .overlay{
     position:absolute;
     inset:0;
-    background:linear-gradient(to top,rgba(0,0,0,.85),transparent);
+    background:linear-gradient(to top,rgba(0,0,0,.9),transparent);
     display:flex;
     align-items:flex-end;
     padding:30px;
 }
 
 .overlay h4{
-    font-size:1.4rem;
+    font-size:1.5rem;
 }
 
 /* ========================= */
-/* DIFERENCIAL */
+/* SOBRE */
 /* ========================= */
 
 .about{
@@ -499,7 +525,7 @@ section{
 
 .checks{
     display:grid;
-    gap:18px;
+    gap:16px;
     margin-top:30px;
 }
 
@@ -515,27 +541,22 @@ section{
 
 .check i{
     color:var(--primary);
-    font-size:1.2rem;
 }
 
 /* ========================= */
 /* CTA */
 /* ========================= */
 
-.cta-section{
+.cta{
     text-align:center;
-    position:relative;
-    overflow:hidden;
 }
 
 .cta-box{
-    position:relative;
-    z-index:2;
     padding:80px 40px;
     border-radius:35px;
     background:linear-gradient(135deg,#02111d,#041b30);
     border:1px solid rgba(255,255,255,.08);
-    box-shadow:0 0 60px rgba(0,170,255,.12);
+    box-shadow:0 0 50px rgba(0,170,255,.12);
 }
 
 .cta-box h2{
@@ -545,13 +566,13 @@ section{
 
 .cta-box p{
     color:#d1d5db;
-    max-width:800px;
+    max-width:700px;
     margin:auto;
     line-height:1.8;
 }
 
-.cta-actions{
-    margin-top:40px;
+.cta-buttons{
+    margin-top:35px;
     display:flex;
     justify-content:center;
     gap:20px;
@@ -565,7 +586,7 @@ section{
 footer{
     padding:70px 8%;
     background:#01040b;
-    border-top:1px solid rgba(255,255,255,.08);
+    border-top:1px solid rgba(255,255,255,.05);
 }
 
 .footer-grid{
@@ -605,18 +626,18 @@ footer{
     width:50px;
     height:50px;
     border-radius:50%;
+    background:rgba(255,255,255,.05);
+    border:1px solid rgba(255,255,255,.08);
     display:flex;
     align-items:center;
     justify-content:center;
-    background:rgba(255,255,255,.05);
-    border:1px solid rgba(255,255,255,.08);
     color:white;
     transition:.3s;
 }
 
 .social a:hover{
-    transform:translateY(-5px);
     background:var(--primary);
+    transform:translateY(-5px);
 }
 
 .copy{
@@ -631,6 +652,7 @@ footer{
 
 .float{
     position:fixed;
+    right:25px;
     width:65px;
     height:65px;
     border-radius:50%;
@@ -646,13 +668,11 @@ footer{
 
 .float-whatsapp{
     bottom:25px;
-    right:25px;
     background:#25d366;
 }
 
 .float-instagram{
     bottom:100px;
-    right:25px;
     background:linear-gradient(45deg,#f58529,#dd2a7b,#8134af,#515bd4);
 }
 
@@ -689,21 +709,17 @@ footer{
     font-size:4rem;
 }
 
-.about-content{
-    order:2;
-}
-
-.about img{
-    max-width:700px;
-    margin:auto;
-}
-
 .stats-grid{
     grid-template-columns:repeat(2,1fr);
 }
 
 .footer-grid{
     grid-template-columns:1fr;
+}
+
+.about img{
+    max-width:700px;
+    margin:auto;
 }
 
 }
@@ -732,25 +748,21 @@ footer{
     grid-template-columns:1fr;
 }
 
-.cta-actions{
+.category-title{
     flex-direction:column;
+    text-align:center;
 }
 
-.btn{
+.footer-grid{
+    text-align:center;
+}
+
+.social{
     justify-content:center;
 }
 
-.hero-card img{
-    max-width:95%;
-}
-
-.logo h1{
-    font-size:1rem;
-}
-
-.nav-btn{
-    padding:12px 18px;
-    font-size:.9rem;
+.cta-buttons{
+    flex-direction:column;
 }
 
 }
@@ -760,9 +772,10 @@ footer{
 
 <body>
 
-<!-- NAV -->
+<!-- NAVBAR -->
 
 <nav>
+
     <div class="nav-container">
 
         <div class="logo">
@@ -773,15 +786,18 @@ footer{
         <div class="menu">
             <a href="#servicos">Serviços</a>
             <a href="#galeria">Galeria</a>
-            <a href="#sobre">Diferenciais</a>
+            <a href="#sobre">Sobre</a>
             <a href="#contato">Contato</a>
         </div>
 
-        <a href="https://wa.me/5562991225645" class="nav-btn" target="_blank">
-            Agendar
+        <a href="https://wa.me/5562991225645"
+           target="_blank"
+           class="nav-btn">
+           Agendar
         </a>
 
     </div>
+
 </nav>
 
 <!-- HERO -->
@@ -803,9 +819,9 @@ footer{
             </h2>
 
             <p>
-                Transformamos veículos com técnicas profissionais de detalhamento,
-                higienização, polimento e acabamento premium.
-                Atendimento profissional, resultado impecável e experiência diferenciada.
+                Especialistas em estética automotiva, higienização de estofados,
+                polimento técnico e acabamento premium.
+                Qualidade profissional e resultados impressionantes.
             </p>
 
             <div class="hero-buttons">
@@ -813,22 +829,26 @@ footer{
                 <a href="https://wa.me/5562991225645"
                    target="_blank"
                    class="btn primary">
+
                     <i class="fa-brands fa-whatsapp"></i>
-                    Solicitar Orçamento
+                    Solicitar orçamento
+
                 </a>
 
                 <a href="https://www.instagram.com/crazy_detailss/"
                    target="_blank"
                    class="btn secondary">
+
                     <i class="fa-brands fa-instagram"></i>
                     Ver Instagram
+
                 </a>
 
             </div>
 
         </div>
 
-        <div class="hero-card">
+        <div class="hero-image">
             <img src="logo.png" alt="">
         </div>
 
@@ -843,7 +863,7 @@ footer{
     <div class="stats-grid">
 
         <div class="stat">
-            <i class="fa-solid fa-car-side"></i>
+            <i class="fa-solid fa-car"></i>
             <h3>+500</h3>
             <p>Veículos atendidos</p>
         </div>
@@ -876,71 +896,215 @@ footer{
 
     <div class="section-title">
 
-        <span>NOSSOS SERVIÇOS</span>
+        <span>SERVIÇOS PREMIUM</span>
 
-        <h2>Detalhamento automotivo de alto nível</h2>
+        <h2>Escolha o serviço ideal</h2>
 
         <p>
-            Trabalhamos com equipamentos profissionais e técnicas avançadas
-            para entregar o máximo de qualidade e acabamento.
+            Trabalhamos com estética automotiva e higienização profissional
+            utilizando equipamentos modernos e produtos premium.
         </p>
 
     </div>
 
-    <div class="services-grid">
+    <!-- ESTÉTICA AUTOMOTIVA -->
 
-        <div class="service-card">
-            <i class="fa-solid fa-soap"></i>
-            <h3>Lavagem Técnica</h3>
-            <p>
-                Limpeza detalhada da parte externa utilizando produtos premium
-                para brilho intenso e proteção da pintura.
-            </p>
+    <div class="services-category">
+
+        <div class="category-title">
+
+            <div class="category-icon">
+                <i class="fa-solid fa-car-side"></i>
+            </div>
+
+            <div>
+                <h3>Estética Automotiva</h3>
+                <p>
+                    Tratamentos completos para deixar seu veículo impecável.
+                </p>
+            </div>
+
         </div>
 
-        <div class="service-card">
-            <i class="fa-solid fa-couch"></i>
-            <h3>Higienização Interna</h3>
-            <p>
-                Limpeza profunda de bancos, carpetes, teto e painéis removendo
-                sujeiras, ácaros e odores.
-            </p>
+        <div class="services-grid">
+
+            <div class="service-card">
+
+                <i class="fa-solid fa-soap"></i>
+
+                <h4>Lavagem Técnica</h4>
+
+                <p>
+                    Limpeza premium com acabamento detalhado e brilho intenso.
+                </p>
+
+                <ul>
+                    <li>✔ Lavagem externa</li>
+                    <li>✔ Limpeza de rodas</li>
+                    <li>✔ Aplicação de brilho</li>
+                    <li>✔ Secagem técnica</li>
+                </ul>
+
+            </div>
+
+            <div class="service-card">
+
+                <i class="fa-solid fa-spray-can-sparkles"></i>
+
+                <h4>Polimento Técnico</h4>
+
+                <p>
+                    Revitalização da pintura removendo marcas e micro riscos.
+                </p>
+
+                <ul>
+                    <li>✔ Correção de pintura</li>
+                    <li>✔ Efeito espelhado</li>
+                    <li>✔ Remoção de hologramas</li>
+                    <li>✔ Proteção da pintura</li>
+                </ul>
+
+            </div>
+
+            <div class="service-card">
+
+                <i class="fa-solid fa-gem"></i>
+
+                <h4>Vitrificação</h4>
+
+                <p>
+                    Proteção premium com brilho intenso e repelência à água.
+                </p>
+
+                <ul>
+                    <li>✔ Proteção cerâmica</li>
+                    <li>✔ Brilho intenso</li>
+                    <li>✔ Longa duração</li>
+                    <li>✔ Fácil manutenção</li>
+                </ul>
+
+            </div>
+
+            <div class="service-card">
+
+                <i class="fa-solid fa-engine-warning"></i>
+
+                <h4>Limpeza de Motor</h4>
+
+                <p>
+                    Higienização técnica e segura do cofre do motor.
+                </p>
+
+                <ul>
+                    <li>✔ Limpeza segura</li>
+                    <li>✔ Acabamento premium</li>
+                    <li>✔ Proteção de peças</li>
+                    <li>✔ Visual renovado</li>
+                </ul>
+
+            </div>
+
         </div>
 
-        <div class="service-card">
-            <i class="fa-solid fa-spray-can-sparkles"></i>
-            <h3>Polimento Técnico</h3>
-            <p>
-                Correção de pintura com revitalização do brilho
-                e remoção de marcas superficiais.
-            </p>
+    </div>
+
+    <!-- ESTOFADOS -->
+
+    <div class="services-category">
+
+        <div class="category-title">
+
+            <div class="category-icon">
+                <i class="fa-solid fa-couch"></i>
+            </div>
+
+            <div>
+                <h3>Higienização de Estofados</h3>
+                <p>
+                    Limpeza profunda automotiva e residencial.
+                </p>
+            </div>
+
         </div>
 
-        <div class="service-card">
-            <i class="fa-solid fa-gem"></i>
-            <h3>Vitrificação</h3>
-            <p>
-                Proteção premium para pintura com efeito espelhado
-                e maior durabilidade.
-            </p>
-        </div>
+        <div class="services-grid">
 
-        <div class="service-card">
-            <i class="fa-solid fa-wind"></i>
-            <h3>Limpeza de Motor</h3>
-            <p>
-                Higienização segura e profissional do cofre do motor
-                com acabamento impecável.
-            </p>
-        </div>
+            <div class="service-card">
 
-        <div class="service-card">
-            <i class="fa-solid fa-car-burst"></i>
-            <h3>Detalhamento Completo</h3>
-            <p>
-                Tratamento premium completo deixando seu carro
-                renovado por dentro e por fora.
-            </p>
+                <i class="fa-solid fa-car-seat"></i>
+
+                <h4>Bancos Automotivos</h4>
+
+                <p>
+                    Remoção de manchas, odores e sujeiras profundas.
+                </p>
+
+                <ul>
+                    <li>✔ Limpeza profunda</li>
+                    <li>✔ Remoção de manchas</li>
+                    <li>✔ Eliminação de odores</li>
+                    <li>✔ Secagem rápida</li>
+                </ul>
+
+            </div>
+
+            <div class="service-card">
+
+                <i class="fa-solid fa-couch"></i>
+
+                <h4>Sofás</h4>
+
+                <p>
+                    Higienização profissional para sofás e estofados.
+                </p>
+
+                <ul>
+                    <li>✔ Higienização antibacteriana</li>
+                    <li>✔ Neutralização de odores</li>
+                    <li>✔ Remoção de sujeira</li>
+                    <li>✔ Aspecto renovado</li>
+                </ul>
+
+            </div>
+
+            <div class="service-card">
+
+                <i class="fa-solid fa-bed"></i>
+
+                <h4>Colchões</h4>
+
+                <p>
+                    Remoção de ácaros, fungos e sujeiras acumuladas.
+                </p>
+
+                <ul>
+                    <li>✔ Limpeza profissional</li>
+                    <li>✔ Remoção de ácaros</li>
+                    <li>✔ Mais saúde</li>
+                    <li>✔ Higienização profunda</li>
+                </ul>
+
+            </div>
+
+            <div class="service-card">
+
+                <i class="fa-solid fa-chair"></i>
+
+                <h4>Poltronas</h4>
+
+                <p>
+                    Limpeza detalhada para poltronas e cadeiras.
+                </p>
+
+                <ul>
+                    <li>✔ Produtos premium</li>
+                    <li>✔ Remoção de manchas</li>
+                    <li>✔ Secagem eficiente</li>
+                    <li>✔ Acabamento impecável</li>
+                </ul>
+
+            </div>
+
         </div>
 
     </div>
@@ -967,24 +1131,33 @@ footer{
     <div class="gallery-grid">
 
         <div class="gallery-item">
-            <img src="gtr2.jpg" alt="">
-            <div class="overlay">
-                <h4>Acabamento Premium</h4>
-            </div>
-        </div>
 
-        <div class="gallery-item">
             <img src="gtr.jpg" alt="">
+
             <div class="overlay">
-                <h4>Brilho Intenso</h4>
+                <h4>Brilho Premium</h4>
             </div>
+
         </div>
 
         <div class="gallery-item">
-            <img src="gtr3.jpg" alt="">
+
+            <img src="gtr2.jpg" alt="">
+
             <div class="overlay">
                 <h4>Detalhamento Completo</h4>
             </div>
+
+        </div>
+
+        <div class="gallery-item">
+
+            <img src="gtr3.jpg" alt="">
+
+            <div class="overlay">
+                <h4>Acabamento Impecável</h4>
+            </div>
+
         </div>
 
     </div>
@@ -1007,36 +1180,37 @@ footer{
             </h2>
 
             <p>
-                A Crazy Details nasceu para entregar um novo nível de estética automotiva,
-                unindo qualidade, dedicação e acabamento premium em cada detalhe.
+                A Crazy Details nasceu para entregar um novo nível
+                de estética automotiva, unindo qualidade, dedicação
+                e acabamento premium em cada detalhe.
             </p>
 
             <p>
-                Trabalhamos com foco total na satisfação do cliente,
-                utilizando produtos profissionais e técnicas modernas para garantir
-                resultados impressionantes.
+                Utilizamos produtos profissionais e técnicas modernas
+                para garantir resultados impressionantes e a melhor
+                experiência para nossos clientes.
             </p>
 
             <div class="checks">
 
                 <div class="check">
                     <i class="fa-solid fa-circle-check"></i>
-                    Atendimento profissional e personalizado
+                    Atendimento profissional
                 </div>
 
                 <div class="check">
                     <i class="fa-solid fa-circle-check"></i>
-                    Produtos premium e equipamentos modernos
+                    Produtos premium
                 </div>
 
                 <div class="check">
                     <i class="fa-solid fa-circle-check"></i>
-                    Qualidade, brilho e acabamento impecável
+                    Acabamento impecável
                 </div>
 
                 <div class="check">
                     <i class="fa-solid fa-circle-check"></i>
-                    Atendimento domiciliar e agendamento rápido
+                    Agendamento facilitado
                 </div>
 
             </div>
@@ -1049,7 +1223,7 @@ footer{
 
 <!-- CTA -->
 
-<section class="cta-section" id="contato">
+<section class="cta" id="contato">
 
     <div class="cta-box">
 
@@ -1060,20 +1234,24 @@ footer{
             o visual do seu veículo com a Crazy Details.
         </p>
 
-        <div class="cta-actions">
+        <div class="cta-buttons">
 
             <a href="https://wa.me/5562991225645"
                target="_blank"
                class="btn primary">
+
                 <i class="fa-brands fa-whatsapp"></i>
                 Chamar no WhatsApp
+
             </a>
 
             <a href="https://maps.google.com/?q=-16.688385009765625,-49.22149658203125"
                target="_blank"
                class="btn secondary">
+
                 <i class="fa-solid fa-location-dot"></i>
-                Ver Localização
+                Ver localização
+
             </a>
 
         </div>
@@ -1154,55 +1332,59 @@ footer{
 <!-- FLOAT BUTTONS -->
 
 <a href="https://wa.me/5562991225645"
-   class="float float-whatsapp"
-   target="_blank">
+   target="_blank"
+   class="float float-whatsapp">
+
    <i class="fa-brands fa-whatsapp"></i>
+
 </a>
 
 <a href="https://www.instagram.com/crazy_detailss/"
-   class="float float-instagram"
-   target="_blank">
+   target="_blank"
+   class="float float-instagram">
+
    <i class="fa-brands fa-instagram"></i>
+
 </a>
 
 <script>
 
-/* EFEITO SCROLL NAV */
+/* NAVBAR */
 
 window.addEventListener("scroll",()=>{
 
     const nav = document.querySelector("nav");
 
-    if(window.scrollY > 80){
-        nav.style.background = "rgba(0,0,0,0.75)";
+    if(window.scrollY > 50){
+        nav.style.background = "rgba(0,0,0,.8)";
     }else{
-        nav.style.background = "rgba(0,0,0,0.45)";
+        nav.style.background = "rgba(0,0,0,.45)";
     }
 
 });
 
-/* ANIMAÇÃO ENTRADA */
+/* ANIMAÇÃO */
 
 const observer = new IntersectionObserver((entries)=>{
 
-    entries.forEach(entry=>{
+    entries.forEach((entry)=>{
 
         if(entry.isIntersecting){
 
-            entry.target.style.opacity = 1;
+            entry.target.style.opacity = "1";
             entry.target.style.transform = "translateY(0px)";
 
         }
 
     });
 
-},{threshold:0.15});
+},{threshold:0.1});
 
 document.querySelectorAll(".service-card,.gallery-item,.stat,.about img,.about-content,.cta-box")
 .forEach((el)=>{
 
-    el.style.opacity = 0;
-    el.style.transform = "translateY(60px)";
+    el.style.opacity = "0";
+    el.style.transform = "translateY(50px)";
     el.style.transition = ".8s ease";
 
     observer.observe(el);
